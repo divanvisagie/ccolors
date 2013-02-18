@@ -2,6 +2,7 @@
 #define CCOLORS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 
 #define CC_CONSOLE_COLOR_DEFAULT "\033[0m"
@@ -16,11 +17,16 @@ typedef struct{
 
 } col;
 
-char* ccolor(){
+char* ccolor( char* str ){
+
+	char* buffer = malloc( sizeof(str)+sizeof(char)*64 );
+
+	sprintf( buffer, "\033[01;34m %s \033[0m", str );
+
+	return buffer;
 
 
-
-	return sprintf(command, "%c[%d;%d;%dm", 0x1B, CC_ATTR(4), 35/*magenta*/ + 30, 30/*black*/ + 40);
+	// sprintf(string, "%c[%d;%d;%dm", 0x1B, 4, 35/*magenta*/ + 30, 30/*black*/ + 40);
 }
 
 

@@ -1,12 +1,17 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 #include "colors/colors.h"
 
 
 
 int main( int argc, char** argv ){
 
-	printf("%s\n","hello world");
+	char* a = "yo ";
+
+	char* b = malloc( sizeof(char)*64 );
+
+
+	printf("%s\n", ccolor( a ) );
 
 	return 0;
 }
