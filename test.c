@@ -2,16 +2,12 @@
 #include <stdlib.h>
 #include "colors/colors.h"
 
-
-
 int main( int argc, char** argv ){
 
-	char* a = "yo ";
+	char* a = "Hello colorful world";
 
-	char* b = malloc( sizeof(char)*64 );
-
-
-	printf("%s\n", ccolor( a ) );
+	printf( "%s\n", ccolor( a, GRAY , BLUE ) );
+	printf("%s\n", ccolor( "single test", CYAN, NULL ) );
 
 	return 0;
 }

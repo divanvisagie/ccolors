@@ -1,34 +1,70 @@
-#ifndef CCOLORS_H
-#define CCOLORS_H
+/*	
+	ccolors.h
+	Created By: Divan Visagie
+	License: BSD
+*/
+
+
+#ifndef C_color_H
+#define C_COLORS_H
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <stdarg.h>
 
+#define C_CONSOLE_COLOR_DEFAULT "\e[0m"
 
-#define CC_CONSOLE_COLOR_DEFAULT "\033[0m"
-#define CC_FORECOLOR(C) "\033[" #C "m"
-#define CC_BACKCOLOR(C) "\033[" #C "m"
-#define CC_ATTR(A) "\033[" #A "m"
+typedef enum{
 
-typedef struct{
+	BLACK,
+	RED,
+	GREEN,
+	BROWN,
+	BLUE,
+	MAGENTA,
+	CYAN,
+	GRAY, // halfway point 7
+	DARK_GRAY,
+	LIGHT_RED,
+	Light_GREEN,
+	YELLOW,
+	LIGHT_BLUE,
+	LIGHT_MAGENTA,
+	LIGHT_CYAN,
+	WHITE = 15
 
-	const char* black;
-	const char* white;
+} CC;
 
-} col;
+char* cc_color_from_int( int col, bool fore ){
 
-char* ccolor( char* str ){
+	char* buffer = malloc( sizeof(char)*32 );
 
-	char* buffer = malloc( sizeof(str)+sizeof(char)*64 );
+	if( col > 7 ){ /* light color */
 
-	sprintf( buffer, "\033[01;34m %s \033[0m", str );
+		sprintf( buffer, "\e[01;%d%dm", fore ? 3 : 4, col-8  );
+
+	}else{ /* dark color */
+
+		sprintf( buffer, "\e[22;%d%dm", fore ? 3 : 4, col  );
+	}
+
 
 	return buffer;
-
-
-	// sprintf(string, "%c[%d;%d;%dm", 0x1B, 4, 35/*magenta*/ + 30, 30/*black*/ + 40);
 }
 
+char* ccolor( char* str, int fore, int back  ){
 
+	if (back == NULL)
+		back = -1;
 
-#endif CCOLORS_H
+	char* buffer = malloc( sizeof(str)+sizeof(char)*16 );
+
+	sprintf( buffer, "%s%s%s%s", cc_color_from_int( fore, true ),
+			 back != -1 ? cc_color_from_int( back, false ) : "",
+			  str, C_CONSOLE_COLOR_DEFAULT );
+
+	return buffer;
+}
+
+#endif
