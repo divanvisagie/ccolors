@@ -1,17 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "colors/colors.h"
-
-
+#include "ccolors.h"
 
 int main( int argc, char** argv ){
 
-	char* a = "yo ";
+	char* a = "Hello colorful world";
 
-	char* b = malloc( sizeof(char)*64 );
+	printf("%s\n", ccolor( a, CC_GRAY , CC_BLUE ) );
+	printf("%s\n", ccolor( "single test", CC_CYAN, CC_DEFAULT ) );
+	printf("%s\n", ccolor( "single test", CC_DEFAULT, CC_BLUE ) );
 
-
-	printf("%s\n", ccolor( a ) );
 
 	return 0;
 }
