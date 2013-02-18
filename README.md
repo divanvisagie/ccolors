@@ -3,24 +3,60 @@ Ccolors
 
 ccolors is a library for quickly adding color codes to your cstrings for terminal output .
 
+## Usage 
+
+To use ccolors, simply include ccolors.h and use the `ccolor()` method;
+
+ccolor takes 3 parameters and returns a char*;
+
+| Parameter | Type  | Desctription 					  |
+|-----------|-------|---------------------------------|
+| cstring   | char* | The string you wish to colorise |
+| fore      | int   | foreground color 				  |
+| back      | int   | background color 				  |
+
+
+The colors are represented by numbers 0 - 15 with -1 as the default, you can use the enum
+values to represent colors or the numbers as specified in the table below:
+
+| Color         | Name             | No |
+|---------------|------------------|----|
+| default       | CC_DEFAULT       | -1 |
+| black         | CC_BLACK         |  0 |
+| red           | CC_RED      	   |  1 |	
+| green         | CC_GREEN         |  2 |
+| brown         | CC_BROWN         |  3 |
+| blue          | CC_BLUE          |  4 |
+| maganta       | CC_MAGENTA       |  5 |
+| cyan          | CC_CYAN          |  6 |
+| gray          | CC_GRAY          |  7 |
+| dark gray     | CC_DARK_GRAY     |  8 |
+| light red     | CC_LIGHT_RED     |  9 |
+| light green   | CC_LIGHT_GREEN   | 10 |
+| yellow        | CC_YELLOW        | 11 |
+| light blue    | CC_LIGHT_BLUE    | 12 |
+| light magenta | CC_LIGHT_MAGENTA | 13 |  
+| light cyan    | CC_LIGHT_CYAN    | 14 |
+| white         | CC_WHITE = 15    | 15 |
+
+
 
 ## EXAMPLE
 
-The following example outputs the text Hello colorful world with a grey foreground and magenta background.
+The following example outputs the text Hello colorful world with a grey foreground and blue background.
 
 	#include <stdio.h>
 	#include <stdlib.h>
-	#include "colors/colors.h"
+	#include "ccolors.h"
 
 	int main( int argc, char** argv ){
 
 		char* a = "Hello colorful world";
 
-		printf( "%s\n", ccolor( a, GRAY , MAGENTA ) );
+		printf("%s\n", ccolor( a, CC_GRAY , CC_BLUE ) );
 
 		return 0;
 	}
-
 
 ## LICENSE
 

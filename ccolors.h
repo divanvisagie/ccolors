@@ -4,7 +4,6 @@
 	License: BSD
 */
 
-
 #ifndef C_color_H
 #define C_COLORS_H
 
@@ -15,52 +14,45 @@
 
 #define C_CONSOLE_COLOR_DEFAULT "\e[0m"
 
-typedef enum{
+enum CC{
 
-	BLACK,
-	RED,
-	GREEN,
-	BROWN,
-	BLUE,
-	MAGENTA,
-	CYAN,
-	GRAY, // halfway point 7
-	DARK_GRAY,
-	LIGHT_RED,
-	Light_GREEN,
-	YELLOW,
-	LIGHT_BLUE,
-	LIGHT_MAGENTA,
-	LIGHT_CYAN,
-	WHITE = 15
+	CC_DEFAULT = -1,
+	CC_BLACK,
+	CC_RED,
+	CC_GREEN,
+	CC_BROWN,
+	CC_BLUE,
+	CC_MAGENTA,
+	CC_CYAN,
+	CC_GRAY, /* halfway point 7 */
+	CC_DARK_GRAY,
+	CC_LIGHT_RED,
+	CC_Light_GREEN,
+	CC_YELLOW,
+	CC_LIGHT_BLUE,
+	CC_LIGHT_MAGENTA,
+	CC_LIGHT_CYAN,
+	CC_WHITE = 15
+};
 
-} CC;
-
+/* Create char* color code from color integer */
 char* cc_color_from_int( int col, bool fore ){
 
 	char* buffer = malloc( sizeof(char)*32 );
-
-	if( col > 7 ){ /* light color */
-
+	if( col > 7 ) /* light color */
 		sprintf( buffer, "\e[01;%d%dm", fore ? 3 : 4, col-8  );
-
-	}else{ /* dark color */
-
+	else /* dark color */
 		sprintf( buffer, "\e[22;%d%dm", fore ? 3 : 4, col  );
-	}
-
 
 	return buffer;
 }
 
+/* Wraps cstring in color codes */
 char* ccolor( char* str, int fore, int back  ){
-
-	if (back == NULL)
-		back = -1;
 
 	char* buffer = malloc( sizeof(str)+sizeof(char)*16 );
 
-	sprintf( buffer, "%s%s%s%s", cc_color_from_int( fore, true ),
+	sprintf( buffer, "%s%s%s%s", fore != -1 ? cc_color_from_int( fore, true ) : "",
 			 back != -1 ? cc_color_from_int( back, false ) : "",
 			  str, C_CONSOLE_COLOR_DEFAULT );
 

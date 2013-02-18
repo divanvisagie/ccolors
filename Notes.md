@@ -22,9 +22,10 @@ Color codes
 | \033[01;36m" | - light cyan       |
 | \033[01;37m" | - white  			|
 
+
 ### Background
 
-| Code         | Color 				|
+| Code         | Color 			
 |--------------|--------------------|
 | \e[22;40m" | - black 				|
 | \e[22;41m" | - red 				|
