@@ -35,7 +35,12 @@ enum CC{
 	CC_WHITE = 15
 };
 
-/* Create char* color code from color integer */
+/* 
+	Create char* color code from color integer.
+	Because of how the color codes work and because lighter
+	colors are greater than 7 in the enum their values have 
+	to be recalculated by subtracting 8.
+*/
 char* cc_color_from_int( int col, bool fore ){
 
 	char* buffer = malloc( sizeof(char)*32 );
@@ -47,11 +52,16 @@ char* cc_color_from_int( int col, bool fore ){
 	return buffer;
 }
 
-/* Wraps cstring in color codes */
+/* 
+	Wraps cstring in color codes.
+	This function simply wraps the char* str in color codes
+	for printing to the terminal.
+*/
 char* ccolor( char* str, int fore, int back  ){
 
-	char* buffer = malloc( sizeof(str)+sizeof(char)*16 );
-
+	int buf_size = ( strlen( str ) + 32 ); /* come up with a good buffer size with
+											  some added space for the color codes */
+	char* buffer = malloc( sizeof(char)*buf_size );
 	sprintf( buffer, "%s%s%s%s", fore != -1 ? cc_color_from_int( fore, true ) : "",
 			 back != -1 ? cc_color_from_int( back, false ) : "",
 			  str, C_CONSOLE_COLOR_DEFAULT );
