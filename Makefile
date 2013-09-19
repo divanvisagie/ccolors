@@ -1,12 +1,7 @@
 all:
-	dotc pre test.cc > pre.cc
-	clang++ pre.cc -o test
-
-test:
-	dotc pre test.cc > pre.cc
-	clang++ pre.cc -o test
-	./test
-
+	dotc pre test/test.cc > test/pre.cc
+	clang++ test/pre.cc -o test/test
+	test/test
 clean:
-	rm test
-	rm pre.cc
+	rm test/test
+	rm test/pre.cc

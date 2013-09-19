@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#require "./colors.cc" as colors
+#require "../lib/colors.cc" as colors
 
 using namespace std;
 

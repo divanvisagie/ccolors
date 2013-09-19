@@ -4,7 +4,7 @@
       'target_name' : 'test',
       'type' : 'executable',
       'sources' : [
-        '<!@(find *.c)',
+        '<!@(find *.cc)',
         '<!@(find *.h)'
       ],
       'include_dirs' : [

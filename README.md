@@ -5,13 +5,13 @@ colors.cc is a library for quickly adding color codes to your C++ strings for te
 
 ## Usage 
 
-To use ccolors, simply include ccolors.h and use the `ccolor()` method;
+To use colors.cc, simply `npm install colors.cc` and `#require "colors.cc" as colors`
 
-ccolor takes 3 parameters and returns a char*;
+colors.use() takes 3 parameters and returns a std::string;
 
 | Parameter | Type  | Desctription 					  |
 |-----------|-------|---------------------------------|
-| cstring   | char* | The string you wish to colorise |
+| str   | std::string | The string you wish to colorise |
 | fore      | int   | foreground color 				  |
 | back      | int   | background color 				  |
 
@@ -19,7 +19,7 @@ ccolor takes 3 parameters and returns a char*;
 The colors are represented by numbers 0 - 15 with -1 as the default, you can use the enum
 values to represent colors or the numbers as specified in the table below:
 
-| Color         | Name             | No |
+| Color         | Enum             | No |
 |---------------|------------------|----|
 | default       | CC_DEFAULT       | -1 |
 | black         | CC_BLACK         |  0 |
@@ -30,20 +30,18 @@ values to represent colors or the numbers as specified in the table below:
 | maganta       | CC_MAGENTA       |  5 |
 | cyan          | CC_CYAN          |  6 |
 | gray          | CC_GRAY          |  7 |
-| dark gray     | CC_DARK_GRAY     |  8 |
-| light red     | CC_LIGHT_RED     |  9 |
-| light green   | CC_LIGHT_GREEN   | 10 |
+| dark_gray     | CC_DARK_GRAY     |  8 |
+| light_red     | CC_LIGHT_RED     |  9 |
+| light_green   | CC_LIGHT_GREEN   | 10 |
 | yellow        | CC_YELLOW        | 11 |
-| light blue    | CC_LIGHT_BLUE    | 12 |
-| light magenta | CC_LIGHT_MAGENTA | 13 |  
-| light cyan    | CC_LIGHT_CYAN    | 14 |
+| light_blue    | CC_LIGHT_BLUE    | 12 |
+| light_magenta | CC_LIGHT_MAGENTA | 13 |  
+| light_cyan    | CC_LIGHT_CYAN    | 14 |
 | white         | CC_WHITE = 15    | 15 |
 
 
 
 ## EXAMPLE
-
-The following example outputs the text Hello colorful world with a grey foreground and blue background.
 
 	#include <iostream>
 	#include <string>

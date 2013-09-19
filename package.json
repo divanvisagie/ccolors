@@ -2,9 +2,9 @@
   "name": "colors.cc",
   "version": "0.0.0",
   "description": "colors for C++",
-  "main.c": "colors.cc",
+  "main.c": "lib/colors.cc",
   "scripts": {
-    "test": "make clean; make test",
+    "test": "make clean; make",
     "install": "ls"
   },
   "repository": {

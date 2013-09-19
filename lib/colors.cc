@@ -72,7 +72,7 @@ char* cc_color_from_int( int col, bool fore ){
 
 	return buffer;
 }
-//#export from_int as cc_color_from_int
+#export from_int as cc_color_from_int
 
 /* 
 	Wraps cstring in color codes.
