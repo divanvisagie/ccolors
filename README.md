@@ -42,24 +42,26 @@ values to represent colors or the numbers as specified in the table below:
 
 
 ## EXAMPLE
+	
+```cpp
+#include <iostream>
+#include <string>
 
-	#include <iostream>
-	#include <string>
+#require "colors.cc" as colors
 
-	#require "colors.cc" as colors
+using namespace std;
 
-	using namespace std;
+int main( int argc, char* argv[] ) {
 
-	int main( int argc, char* argv[] ) {
+	string a = "Hello colorful world";
 
-		string a = "Hello colorful world";
+	cout << colors.use( a, colors.grey , colors.magenta ) << endl;
+	cout << colors.use( "single test", colors.cyan, colors.bg ) << endl;
+	cout << colors.use( " single test ", colors.black, colors.blue) << endl;
 
-		cout << colors.use( a, colors.grey , colors.magenta ) << endl;
-		cout << colors.use( "single test", colors.cyan, colors.bg ) << endl;
-		cout << colors.use( " single test ", colors.black, colors.blue) << endl;
-
-		return 0;
-	}
+	return 0;
+}
+```
 
 ## LICENSE
 
