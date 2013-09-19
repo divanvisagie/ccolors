@@ -63,6 +63,8 @@ int main( int argc, char* argv[] ) {
 }
 ```
 
+This is a [dotc](https://github.com/substack/dotc) module.
+
 ## LICENSE
 
 BSD LICENSE
