@@ -1,0 +1,20 @@
+{
+  "name": "colors.cc",
+  "version": "0.0.0",
+  "description": "colors for C++",
+  "main.c": "colors.cc",
+  "scripts": {
+    "test": "make clean; make test",
+    "install": "ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/divanvisagie/colors.cc.git"
+  },
+  "author": "Divan Visagie <visagiedivan@gmail.com> (http://divcode.blogspot.com/)",
+  "license": "BSD",
+  "gypfile": false,
+  "bugs": {
+    "url": "https://github.com/divanvisagie/colors.cc/issues"
+  }
+}

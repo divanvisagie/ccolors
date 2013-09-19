@@ -1,7 +1,7 @@
-Ccolors
+colors.cc
 =======
 
-ccolors is a library for quickly adding color codes to your cstrings for terminal output .
+colors.cc is a library for quickly adding color codes to your C++ strings for terminal output.
 
 ## Usage 
 
@@ -45,15 +45,20 @@ values to represent colors or the numbers as specified in the table below:
 
 The following example outputs the text Hello colorful world with a grey foreground and blue background.
 
-	#include <stdio.h>
-	#include <stdlib.h>
-	#include "ccolors.h"
+	#include <iostream>
+	#include <string>
 
-	int main( int argc, char** argv ){
+	#require "colors.cc" as colors
 
-		char* a = "Hello colorful world";
+	using namespace std;
 
-		printf("%s\n", ccolor( a, CC_GRAY , CC_BLUE ) );
+	int main( int argc, char* argv[] ) {
+
+		string a = "Hello colorful world";
+
+		cout << colors.use( a, colors.grey , colors.magenta ) << endl;
+		cout << colors.use( "single test", colors.cyan, colors.bg ) << endl;
+		cout << colors.use( " single test ", colors.black, colors.blue) << endl;
 
 		return 0;
 	}
